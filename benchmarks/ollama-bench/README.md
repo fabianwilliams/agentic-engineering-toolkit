@@ -2,6 +2,8 @@
 
 A Bash benchmark runner for local LLM stacks on Ollama. Built while benchmarking Qwen3.6 against gpt-oss:120b on a MacBook Pro M3 Max — the script is the same one I used to produce [these numbers](https://www.fabswill.com/blog/replacing-gpt-oss-with-qwen3-6-on-macbook-pro/).
 
+> **Hardware matters.** The numbers in this README were produced on a MacBook Pro M3 Max with 128 GB unified memory and a 40-core GPU, running Ollama 0.17.x on Metal. Your wall times will differ if your hardware does — sometimes by a factor of 2-5x. See [HARDWARE.md](../../HARDWARE.md) at the repo root for the full dev-machine spec and the verification steps to confirm Ollama is actually running on GPU.
+
 ## What it does
 
 Given a prompt file and a list of model names, the script:

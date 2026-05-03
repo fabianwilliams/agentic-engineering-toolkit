@@ -1,8 +1,23 @@
 # Agentic Engineering Toolkit
 
+```
+╭───────────────────────────────────────────────╮
+│                                               │
+│   AGENTIC  ENGINEERING  TOOLKIT               │
+│                                               │
+│   tools · prompts · patterns                  │
+│   for real local-AI workloads                 │
+│                                               │
+│   fabswill.com  ·  Apache 2.0                 │
+│                                               │
+╰───────────────────────────────────────────────╯
+```
+
 Tools, prompts, and patterns I use when building real local-AI workloads. Verified on my own hardware before they show up here. Apache 2.0, no roadmap, no announcements — I add things as I ship them.
 
 If you found this through one of my blog posts, a Reddit thread, or just by searching, welcome. Star or watch if you want updates; the repo grows when there is something worth adding, not on a schedule.
+
+> **Reproducing the benchmarks?** The numbers in this repo's READMEs were produced on a specific machine — MacBook Pro M3 Max, 128 GB unified memory, **40-core GPU**, Ollama 0.17.x on Metal. If your hardware differs, your numbers will differ. See [HARDWARE.md](./HARDWARE.md) for the full dev-machine spec, the production-vs-dev architecture, and the verification steps to confirm Ollama is actually running on GPU.
 
 ## What is here
 
