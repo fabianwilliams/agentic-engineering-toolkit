@@ -1,6 +1,6 @@
 # Obsidian + Claude Second Brain
 
-> A working implementation of [Andrej Karpathy's second-brain pattern](https://x.com/karpathy/status/1829395800024674444) on top of an Obsidian vault, driven by Claude Code skills.
+> A working implementation of [Andrej Karpathy's second-brain pattern](https://x.com/karpathy/status/2039805659525644595) on top of an Obsidian vault, driven by Claude Code skills.
 
 If you found this through [the blog post](https://fabswill.com/blog/building-a-second-brain-that-compounds-karpathy-obsidian-claude/), this is the runnable version. Drop the four skills into your `~/.claude/commands/` directory, copy the `knowledge-template/` folder into your Obsidian vault, and the `/ingest-transcript`, `/wiki-compile`, and `/wiki-lint` commands will start working.
 
