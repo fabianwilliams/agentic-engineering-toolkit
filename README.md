@@ -27,7 +27,8 @@ If you found this through one of my blog posts, a Reddit thread, or just by sear
 | [`benchmarks/prompts`](./benchmarks/prompts) | ✅ 1 prompt | Real benchmark prompts for structured-output workloads. Start with `sdr-research-brief.md`. |
 | [`obsidian-claude-second-brain`](./obsidian-claude-second-brain) | ✅ working | Karpathy-pattern second brain on Obsidian + Claude Code. Four skills (`/yt-transcript`, `/ingest-transcript`, `/wiki-compile`, `/wiki-lint`) plus a knowledge-pipeline directory template. Companion to [the blog post](https://fabswill.com/blog/building-a-second-brain-that-compounds-karpathy-obsidian-claude/). |
 | [`demos/mcp-storefront`](./demos/mcp-storefront) | ✅ live | Public MCP-callable storefront. Two worked examples — hosted Claude AND fully local Qwen3.6 27B — produce the same audit-trail receipt from the same endpoint. Full source at [`fabianwilliams/adotob-mcp`](https://github.com/fabianwilliams/adotob-mcp). |
-| [`agents`](./agents) | 🟡 placeholder | Reference patterns for small autonomous-agent fleets. Coming soon. |
+| [`agents/announce-intent-before-action`](./agents/announce-intent-before-action) | ✅ v1 | Reliability Kit discipline. The matched pair to the audit-trail receipt: agent tools must enumerate every server-side effect *before* the human approves the call. Lineage traced from Caitlin Kalinowski (Lenny's podcast 2026-05-17), Pixar's announce-then-act, Stanislavski's telegraphing. |
+| [`agents`](./agents) | 🟡 placeholder | More reference patterns for small autonomous-agent fleets. Coming soon. |
 | [`modelfiles`](./modelfiles) | 🟡 placeholder | Modelfile overlays tuned for Apple Silicon workloads. Coming soon. |
 | [`corpus`](./corpus) | 🟡 placeholder | Tools for capturing and analyzing your own public posts and reception data. Coming soon. |
 | [`methodology`](./methodology) | 🟡 placeholder | Longer-form methodology PDFs. Premium versions live at [estore.adotob.com](https://estore.adotob.com/store). |
