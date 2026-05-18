@@ -92,6 +92,23 @@ The discipline is the receipt's twin. Either alone is incomplete:
 
 Both halves shipped together is the design pattern. The pair is what a procurement reviewer, a CISO, a CFO, or a partner expects when "agent safety" is more than a marketing claim.
 
+## How this maps onto Claire Vo's "types and tests as bookends"
+
+Claire Vo's framework for writing specs in the agentic era: lead with the **types** (what the data looks like, what is in the pipes), close with the **tests** (what success looks like and how to verify it). Everything in the middle is gravy. With both bookends pinned, the implementation details are negotiable, which is exactly what you want the agent to figure out.
+
+The announce-intent-before-action discipline is the same shape applied to side-effects:
+
+| Spec bookend (Claire) | Reliability Kit bookend (this discipline) |
+|---|---|
+| **Types**: what shape the data has, what is in the pipes, what entities exist | **Side-effect enumeration**: the 7 categories the tool description must address (data, identity, communication, issuance, public, money, trigger) |
+| **Tests**: validation criteria, success metrics, acceptance scenarios | **Audit-trail receipt**: every check that fired, in order, with pass/fail/skip/warn status and a timestamp |
+
+Both bookends are pinned; the middle (the implementation between announcement and verification) is, in Claire's phrasing, gravy. The agent runtime, the LLM provider, the orchestration framework, the storage backend, can change. What stays constant is: the tool's contract enumerates side-effects, and the receipt verifies which ones fired.
+
+This vocabulary matters because most product managers and product engineers already speak it. Claire's "types and tests as bookends" framing is a 2026-vintage PM idiom. Naming the announce-intent-before-action discipline as the side-effects-and-receipt version of the same shape makes it immediately recognizable to a wider audience than the security and finance buyers the original framing addressed.
+
+See `concepts/types-and-tests-as-spec-bookends.md` and `people/claire-vo.md` in the upstream knowledge wiki for the full Claire Vo treatment.
+
 ## What this discipline contributes
 
 1. **A name for the missing half.** Most discussions of agent safety center on after-action observability (the receipt half). This document names the before-action half and treats them as a pair, not separate concerns.
