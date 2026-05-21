@@ -1,0 +1,85 @@
+# ADOTOB Loop Constitution (per-box template).
+#
+# Copy to constitution.yml and customize per deployment.
+# This file is machine-readable; the loop reads it on every iteration.
+# Prose documentation belongs in README.md or per-action scripts; not here.
+
+box:
+  name: macona-openclaw-surface         # human-readable box id
+  surface: windows-surface-192.168.68.57
+  fleet: macona                          # macona | adotob | gandj | other
+  contact_dri: fabian@adotob.com         # the named human (DRI) for outcomes
+
+loop:
+  interval_sec: 3600                     # one iteration per hour
+  wall_time_budget_sec: 120              # per-iteration timeout
+  token_budget_daily: 50000              # hard halt at this daily total
+  token_budget_warn_at_pct: 80           # warn the operator at 80% used
+
+actions:
+  # update_memory: propose a new or updated feedback_*.md rule in the
+  # operator's auto-memory directory. Diff posted to operator; never auto-applied.
+  update_memory:
+    auto_fire: false
+    approval_channel: telegram
+    target_directory: ~/.claude/projects/-Users-fabswill-ObsidianFabsWillVault-FabsWill-projects-task-flow/memory
+
+  # open_pr: write a code change, push to a feature branch, open a draft PR
+  # with the iteration receipt linked. Operator merges via GitHub UI.
+  open_pr:
+    auto_fire: false
+    approval_channel: telegram
+    default_repo: fabianwilliams/task-flow
+    branch_prefix: adotob-loop/
+
+  # escalate: structured Telegram message to operator with the choice framed
+  escalate:
+    auto_fire: true                       # the escalation IS the action; no separate approval
+    approval_channel: telegram
+    severity_threshold_to_page: high      # low | normal | high; "page" = additional alert mechanism
+
+  # noop: explicit decision logged; not silent
+  noop:
+    auto_fire: true
+
+# Categories of failure that bypass the normal classification and go directly to escalate
+escalate_immediately:
+  - brevo_account_flag
+  - spam_complaint
+  - oauth_token_revoked
+  - data_loss
+  - cost_ceiling_exceeded
+  - 5+_consecutive_iteration_failures
+
+quality_gate:
+  required_proposal_fields:
+    - action
+    - rationale
+    - evidence_paths
+  reject_if:
+    - empty_sensor_input
+    - unknown_action_value
+    - proposed_diff_touches_secrets
+
+kill_switch:
+  on_token_budget_exceeded: halt
+  on_consecutive_failures: 3
+  operator_emergency_stop_file: ./STOP
+  on_constitution_corrupted: halt        # if this file fails to parse, the loop exits
+
+# What the loop is forbidden from doing.
+# Operator approval cannot override these; they require a constitution edit.
+forbidden:
+  - directly_send_emails_to_external_recipients
+  - issue_payments_without_idempotency_key
+  - delete_existing_memory_files
+  - rewrite_existing_RCA_files
+  - touch_files_outside_repo_root
+  - call_LLM_with_secrets_in_prompt
+
+# Operator-approval cadence policy.
+# How long to wait for a thumbs-up before treating the proposal as expired.
+operator_approval:
+  expiry_after_hours: 24
+  on_expiry: log_and_drop                # do NOT re-prompt; the operator will see in tomorrow's summary
+  reminder_after_hours: 6                # one nudge before expiry
