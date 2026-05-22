@@ -107,4 +107,4 @@ v1, written 2026-05-20. Positions the Kit explicitly as the observability layer 
 ## Credits
 
 - The five-control-points lens for partner conversations (runtime / identity / data / tool-write / observability) plus the multilayer-kill-switch idea were articulated by several writers during 2026, including Nate B Jones. The lens is used here because it is legible to procurement and security buyers.
-- **Auth0 / Ozero**: the delegated-authority-with-constraints pattern this doc cites at the identity layer. Their AI Agents docs are the canonical reference.
+- **Auth0 / Okta**: the delegated-authority-with-constraints pattern this doc cites at the identity layer. Their AI Agents docs are the canonical reference.
