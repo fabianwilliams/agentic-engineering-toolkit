@@ -1,6 +1,6 @@
 # Announce Intent Before Action
 
-> A discipline of the Agent Reliability Kit. Pairs with the audit-trail receipt.
+> A discipline of the Agent Reliability Kit. Pairs with [`sense-before-act`](../sense-before-act/) (the observation half) and the audit-trail receipt (the after-action artifact). Together the three form the per-iteration arc: observe, announce, verify.
 
 ---
 
@@ -19,9 +19,11 @@ The two halves of the safety loop:
 | **Before action** | Tool description that enumerates side-effects | "What is this agent about to do on my behalf?" |
 | **After action** | Public, consumer-readable audit-trail receipt | "What did the agent actually do?" |
 
-Both halves are required. A system with only the after-action receipt makes the human reactive — they only learn the full scope of what happened *after* it happened. A system with only the before-action announcement makes the human credulous — they trust the announcement and have no way to verify the reality.
+Both halves are required. A system with only the after-action receipt makes the human reactive: they only learn the full scope of what happened *after* it happened. A system with only the before-action announcement makes the human credulous: they trust the announcement and have no way to verify the reality.
 
 The pair is what makes agent safety legible.
+
+The broader frame: this discipline pairs with [`sense-before-act`](../sense-before-act/) on the observation side. Sense-before-act forces the agent to ground in real state before any decision (four artifacts emitted every iteration). Announce-intent-before-action then forces the agent to enumerate side effects before the tool fires. The audit-trail receipt closes the loop after action. The full per-iteration arc is observe, announce, act, receipt; this discipline owns the second step.
 
 ## Lineage
 

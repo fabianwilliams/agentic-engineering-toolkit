@@ -27,7 +27,7 @@ Agents on consumer-tier hardware now run long-horizon work over multiple sources
 
 The failure mode is structural, not a model defect. No prompt instruction prevents it. The only defense is to require the agent to PRODUCE the grounding before policy runs, so the gaps are legible to the operator BEFORE the agent commits to a decision.
 
-This is the runtime form of a discipline the broader practitioner community has been converging on for human-AI collaboration in 2026 (operator podcasts, working-in-public engineers, and product writing have all named related patterns at the human-knowledge-work layer). At the human layer the artifacts are read before drafting. At the agent-runtime layer the artifacts are emitted every iteration, because humans cannot inspect every iteration. Same discipline, two layers.
+This is the [scientific method](https://en.wikipedia.org/wiki/Scientific_method) applied to agent runtime. Observe the system. Name what disagrees. Name what is missing. Deduplicate evidence. THEN form a hypothesis (the policy stage). Then test it (the action and the quality gate). Then update the model of the world (the learning stage). The framing is centuries old; the only thing new is the application, because agents that run unsupervised across multiple state sources are new. Treating the agent like a scientific instrument rather than an oracle is what this discipline names.
 
 ## The four required artifacts
 
@@ -131,7 +131,7 @@ Rule: when the same underlying event appears in N sensors, the policy stage MUST
 
 ## What you do with the four artifacts
 
-The four artifacts feed forward into the agent's policy stage as a single bundled grounding object. The policy stage receives this bundle and uses it to decide which action to take (in the Adotob 5-stage loop: `noop`, `escalate`, `update_memory`, `open_pr`).
+The four artifacts feed forward into the agent's policy stage as a single bundled grounding object. The policy stage receives this bundle and uses it to decide which action to take. In the Adotob loop the policy stage chooses among four named actions: `noop`, `escalate`, `update_memory`, `open_pr`. (The loop itself has five stages: sensor, policy, tool, quality gate, learning. `sense-before-act` lives at stage 1.)
 
 The policy stage MUST NOT see raw sensor output without the four artifacts wrapping it. The artifacts are the schema; raw sensor output is the input from which they are derived.
 
@@ -150,15 +150,13 @@ Each artifact answers a specific failure question that long-horizon agent work t
 
 Three artifacts catch most cases; four catch the realistic span. Fewer than four leaves a known hole; more than four adds ceremony without adding coverage.
 
-## Lineage and convergence
+## Provenance
 
-Adotob arrived at this discipline by running multi-agent fleets in production. The 5-stage Self-Improving Fleet Loop was named 2026-05-21; ADOTOB Loop deployed the same evening with all four artifacts built into every iteration receipt. The broader practitioner community is converging on related ideas for human-AI collaboration (visible across the operator podcasts and working-in-public writing of 2026). We ship the engine that runs the same discipline for agents at runtime, where humans cannot inspect every iteration. The vocabulary in this kit is ours.
-
-The principle that prompts cannot enforce truth (no instruction prevents structural failure modes; only structural grounding prevents them) is shared across the convergent thinking. The agent-runtime application is where Adotob lives.
+Adotob arrived at this discipline by running multi-agent fleets in production. The 5-stage Self-Improving Fleet Loop was named 2026-05-21. ADOTOB Loop deployed the same evening with the four artifacts built into every iteration receipt. The vocabulary in this kit is ours. The underlying principle (observe before you decide) is older than software.
 
 ## Live reference
 
-The closest live implementation is ADOTOB Loop running on the MACONA OpenClaw box. The current v0.1 iteration receipts contain the data the four artifacts call for (sensor results with status, the LLM's proposal, the operator-facing summary) inside a consolidated `proposal.json` + `receipt.json` pair. Lifting that consolidated data into four explicitly named files matching the schemas above is the next implementation milestone for the reference runtime:
+The closest live implementation is ADOTOB Loop running on the [MACONA](https://macona.org) OpenClaw box. The current v0.1 iteration receipts contain the data the four artifacts call for (sensor results with status, the LLM's proposal, the operator-facing summary) inside a consolidated `proposal.json` + `receipt.json` pair. Lifting that consolidated data into four explicitly named files matching the schemas above is the next implementation milestone for the reference runtime:
 
 ```
 adotob-loop/receipts/iter_<id>/
