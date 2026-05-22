@@ -10,7 +10,7 @@
 
 ## The five-control-point landscape
 
-Per Nate B Jones's 2026-05-20 framework (see `knowledge/wiki/concepts/five-agent-control-points.md` in the upstream wiki), every production-shipping agent workflow has to answer for five infrastructure layers, plus a kill switch that crosses all of them:
+Every production-shipping agent workflow has to answer for five infrastructure layers, plus a kill switch that crosses all of them. The lens used here (see also `knowledge/wiki/concepts/five-agent-control-points.md` in the upstream wiki for the full treatment):
 
 | Layer | Question it answers | Operators in 2026 |
 |---|---|---|
@@ -102,9 +102,9 @@ That positioning collapses three procurement objections at once:
 
 ## Status
 
-v1, written 2026-05-20 in response to Nate B Jones's `Five Agent Control Points` framework. Positions the Kit explicitly as the observability layer that pairs with the partner's stack.
+v1, written 2026-05-20. Positions the Kit explicitly as the observability layer that pairs with the partner's stack rather than competing with it.
 
 ## Credits
 
-- **Nate B Jones**: Five Agent Control Points + multilayer kill switch + the seven production-agent questions diagnostic, 2026-05-20 video "These 5 Companies Secretly Control AI." His framework is the architectural map this doc sits on top of.
+- The five-control-points lens for partner conversations (runtime / identity / data / tool-write / observability) plus the multilayer-kill-switch idea were articulated by several writers during 2026, including Nate B Jones. The lens is used here because it is legible to procurement and security buyers.
 - **Auth0 / Ozero**: the delegated-authority-with-constraints pattern this doc cites at the identity layer. Their AI Agents docs are the canonical reference.
