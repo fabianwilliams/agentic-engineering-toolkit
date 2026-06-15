@@ -23,6 +23,16 @@ Two-minute walkthrough with all 16 screenshots from the two example runs:
 
 The SOP includes a client matrix showing where the "add MCP server" UI lives in Claude Desktop, ChatGPT, LM Studio, Cursor, Windsurf, Cline, and others — plus a raw-API path (Path B) for code that calls the endpoint directly from the OpenAI Responses API, Anthropic Messages API, Bedrock, Azure OpenAI, etc.
 
+For protocol/API reviewers, start here:
+
+→ **[SME Testing Guide](https://github.com/fabianwilliams/adotob-mcp/blob/main/docs/SME-TESTING.md)**
+
+That guide includes a public Node.js smoke script that can be run from any
+machine without credentials. By default it checks discovery, MCP, the
+A2A-compatible `SendMessage` bridge, and controlled failure receipts without
+sending a real fulfillment email. Setting `ADOTOB_TEST_EMAIL` enables the real
+email/download/receipt path.
+
 ## Why this matters
 
 One artifact, two buyer concerns:
@@ -48,6 +58,7 @@ This is the same Agent Reliability Kit discipline applied across the rest of thi
 |---|---|
 | This README (the cross-link + framing) | The full Next.js reference implementation |
 | Pointers to the live receipts + SOP | The 6-check orchestrator (`src/lib/a2a-purchase.ts`) |
+| Pointers to the SME testing guide | Public smoke script (`scripts/smoke-agent-storefront.mjs`) |
 | | The receipt page UI (`src/components/receipt-timeline.tsx`) |
 | | The rate-limit / cost-ceiling middleware |
 | | The 16-screenshot walkthrough (`docs/HAPPY-PATH-SOP.md`) |
